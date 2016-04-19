@@ -11,19 +11,22 @@ import CoreData
 import Alamofire
 
 
-class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISplitViewControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var movies = [Movie]()
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-       
         
+        self.splitViewController?.preferredDisplayMode = .AllVisible
+        self.splitViewController?.delegate = self
+    }
+    
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        return true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -75,13 +78,24 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         return movies.count
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let move : Movie!
+        move = movies[indexPath.row]
+        performSegueWithIdentifier("movieDetailVCSegue", sender: move)
+    }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "movieDetailVCSegue" {
+            if let detailsVC = segue.destinationViewController as? movieDetailVC {
+                if let move = sender as? Movie {
+                    detailsVC.movie = move
+                }
+            }
+        }
+    }
     
-   
     
-    
-    
-
 }
 

@@ -86,17 +86,18 @@
                     <navigationItem key="navigationItem" id="rnv-IK-VIi">
                         <barButtonItem key="rightBarButtonItem" title="Add Movie" id="oK2-yg-M6E">
                             <connections>
-                                <segue destination="WrM-kq-TDZ" kind="show" id="bCx-eR-q8N"/>
+                                <segue destination="WrM-kq-TDZ" kind="show" id="4vS-hj-XUa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xlg-7d-Twn" id="R1x-Qk-FeG"/>
+                        <segue destination="fzE-IP-GIV" kind="showDetail" identifier="movieDetailVCSegue" id="f0O-HU-noV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="321"/>
+            <point key="canvasLocation" x="1027" y="332"/>
         </scene>
         <!--Add MovieVC-->
         <scene sceneID="fe2-oX-dfd">
@@ -249,13 +250,13 @@
             <objects>
                 <splitViewController id="fqE-wH-UID" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="rTO-QR-VEK" kind="relationship" relationship="masterViewController" id="vGX-gT-9LW"/>
-                        <segue destination="Fme-nd-MFF" kind="relationship" relationship="detailViewController" id="3dj-jp-mO2"/>
+                        <segue destination="rTO-QR-VEK" kind="relationship" relationship="masterViewController" id="EW7-GT-K9x"/>
+                        <segue destination="Fme-nd-MFF" kind="relationship" relationship="detailViewController" id="6LJ-L9-eXL"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNX-QS-qA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401" y="316"/>
+            <point key="canvasLocation" x="-425" y="332"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S0C-Vf-XGS">
@@ -291,7 +292,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-FV-ykN">
                                 <rect key="frame" x="187.5" y="279" width="225.5" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -304,12 +305,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXx-fY-cCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-54" y="1025"/>
+            <point key="canvasLocation" x="-425" y="1103"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie DetailVC-->
         <scene sceneID="e7b-Hc-Gr2">
             <objects>
-                <viewController id="fzE-IP-GIV" sceneMemberID="viewController">
+                <viewController id="fzE-IP-GIV" customClass="movieDetailVC" customModule="MovieBin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U7S-HK-BIF"/>
                         <viewControllerLayoutGuide type="bottom" id="bwy-dF-HIG"/>
@@ -317,11 +318,53 @@
                     <view key="view" contentMode="scaleToFill" id="ky3-wT-Evj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-be-uRm">
+                                <rect key="frame" x="180" y="358" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="0ea-a6-X8B"/>
+                                    <constraint firstAttribute="width" constant="240" id="s1S-6Q-oaJ"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="This-is-the-End-Movie-Poster" translatesAutoresizingMaskIntoConstraints="NO" id="7IS-AQ-uC1">
+                                <rect key="frame" x="180" y="76" width="240" height="262"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="BqJ-yR-w9F"/>
+                                    <constraint firstAttribute="height" constant="262" id="O17-Ju-DC8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Is The End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-ld-HHz">
+                                <rect key="frame" x="0.0" y="20" width="600" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NCg-be-uRm" firstAttribute="top" secondItem="7IS-AQ-uC1" secondAttribute="bottom" constant="20" id="01j-ZW-uh2"/>
+                            <constraint firstItem="7IS-AQ-uC1" firstAttribute="centerX" secondItem="ky3-wT-Evj" secondAttribute="centerX" id="6hC-eW-Szl"/>
+                            <constraint firstItem="ibw-ld-HHz" firstAttribute="top" secondItem="U7S-HK-BIF" secondAttribute="bottom" id="8UA-uV-3gv"/>
+                            <constraint firstItem="NCg-be-uRm" firstAttribute="centerX" secondItem="ky3-wT-Evj" secondAttribute="centerX" id="AUZ-PP-08P"/>
+                            <constraint firstItem="ibw-ld-HHz" firstAttribute="centerX" secondItem="ky3-wT-Evj" secondAttribute="centerX" id="DKk-RN-i7D"/>
+                            <constraint firstItem="7IS-AQ-uC1" firstAttribute="top" secondItem="ibw-ld-HHz" secondAttribute="bottom" constant="20" id="IDb-Oc-vAb"/>
+                            <constraint firstAttribute="trailing" secondItem="ibw-ld-HHz" secondAttribute="trailing" id="Xwx-i8-f9A"/>
+                            <constraint firstItem="ibw-ld-HHz" firstAttribute="leading" secondItem="ky3-wT-Evj" secondAttribute="leading" id="hah-37-QCe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="movieDescLbl" destination="NCg-be-uRm" id="dwZ-TQ-Kq0"/>
+                        <outlet property="movieImg" destination="7IS-AQ-uC1" id="Q52-Gk-0Yw"/>
+                        <outlet property="titleLbl" destination="ibw-ld-HHz" id="wjZ-mr-35O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QtT-X8-cUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1035" y="1074"/>
         </scene>
     </scenes>
     <resources>
