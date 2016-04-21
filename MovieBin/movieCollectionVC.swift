@@ -85,6 +85,32 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("movieDetailVCSegue", sender: move)
     }
     
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            
+            let movie = movies[indexPath.row] as NSManagedObject
+            
+            context.deleteObject(movie)
+            
+            do {
+                try context.save()
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
+            
+            movies.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            
+            tableView.reloadData()
+            
+        }
+    }
+    
+    
+    /*
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
@@ -113,9 +139,9 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         }
         Delete.backgroundColor = UIColor.orangeColor()
-        return [Edit, Delete]
+        return [Delete]
     }
-    
+    */
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }

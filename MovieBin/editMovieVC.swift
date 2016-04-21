@@ -62,12 +62,14 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
         let fetchRequest = NSFetchRequest(entityName: "Movie")
         
         do {
-            try context.executeRequest(fetchRequest)
-            print("WeGet Here")
+            try context.executeFetchRequest(fetchRequest)
+            
+            
             movie.title = titleField.text
             movie.plot = plotField.text
             movie.rating = ratingField.text
             movie.setMovieImage(moviePosterImg.image!)
+                context.insertObject(movie)
             
             do {
                 try context.save()
