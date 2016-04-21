@@ -86,11 +86,14 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "movieDetailVCSegue" {
             if let detailsVC = segue.destinationViewController as? movieDetailVC {
-                if let move = sender as? Movie {
-                    detailsVC.movie = move
+                if let movie = sender as? Movie {
+                    
+                    detailsVC.movie = movie
                 }
             }
         }

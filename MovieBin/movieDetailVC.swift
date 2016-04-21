@@ -10,7 +10,7 @@ import UIKit
 
 class movieDetailVC: UIViewController {
 
-    var movie = Movie()
+    var movie : Movie?
     
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var movieImg: UIImageView!
@@ -19,9 +19,14 @@ class movieDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.titleLbl.text = movie.title
-       
+        if movie != nil {
+            self.titleLbl.text = movie!.title
+        }
+        if movie != nil {
+            self.movieImg.image = movie!.getMovieImage()
+        }
+        if movie != nil {
+            self.movieDescLbl.text = movie!.plot
+        }
     }
-
-    
 }
