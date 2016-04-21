@@ -1,4 +1,14 @@
 //
+//  editMovieVC.swift
+//  MovieBin
+//
+//  Created by Christopher Rathnam on 4/21/16.
+//  Copyright © 2016 Christopher Rathnam. All rights reserved.
+//
+
+import Foundation
+
+//
 //  addMovieVC.swift
 //  MovieBin
 //
@@ -10,13 +20,14 @@ import UIKit
 import Alamofire
 import CoreData
 
-class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
-
+class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var searchMovie: UITextField!
     @IBOutlet weak var moviePosterImg: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var ratingField: UITextField!
     @IBOutlet weak var plotField: UITextField!
+    @IBOutlet weak var editMovieBtn: UIButton!
     
     
     
@@ -35,7 +46,7 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
         moviePosterImg.clipsToBounds = true
         searchMovie.delegate = self
         
-      
+        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -45,14 +56,14 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
     
     
     
-    @IBAction func addMovieImgPressed(sender: AnyObject) {
+    @IBAction func editMovieImgPressed(sender: AnyObject) {
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     
     
-    @IBAction func createMovieBtnPressed(sender: AnyObject) {
+    @IBAction func editMovieBtnPressed(sender: AnyObject) {
         
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
@@ -115,9 +126,9 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
                         print(plot)
                         
                         let nsurl = NSURL(string: path)!
-                            if let data = NSData(contentsOfURL: nsurl) {
-                                let img = UIImage(data: data)
-                                self.moviePosterImg.image = img
+                        if let data = NSData(contentsOfURL: nsurl) {
+                            let img = UIImage(data: data)
+                            self.moviePosterImg.image = img
                         }
                         
                         self.titleField.text = title
