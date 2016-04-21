@@ -17,7 +17,7 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var ratingField: UITextField!
     @IBOutlet weak var plotField: UITextField!
-    
+    @IBOutlet weak var addMovieBtn: UIButton!
     
     
     var userInput: String?
@@ -128,4 +128,5 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
             }
         }
     }
+
 }

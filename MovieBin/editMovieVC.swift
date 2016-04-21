@@ -6,15 +6,6 @@
 //  Copyright © 2016 Christopher Rathnam. All rights reserved.
 //
 
-import Foundation
-
-//
-//  addMovieVC.swift
-//  MovieBin
-//
-//  Created by Christopher Rathnam on 4/18/16.
-//  Copyright © 2016 Christopher Rathnam. All rights reserved.
-//
 
 import UIKit
 import Alamofire
@@ -27,8 +18,7 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var ratingField: UITextField!
     @IBOutlet weak var plotField: UITextField!
-    @IBOutlet weak var editMovieBtn: UIButton!
-    
+    @IBOutlet weak var addMovieBtn: UIButton!
     
     
     var userInput: String?
@@ -56,7 +46,7 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
     
     
     
-    @IBAction func editMovieImgPressed(sender: AnyObject) {
+    @IBAction func addMovieImgPressed(sender: AnyObject) {
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
@@ -139,4 +129,6 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
             }
         }
     }
+    
 }
+

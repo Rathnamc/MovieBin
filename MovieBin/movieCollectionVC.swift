@@ -85,22 +85,8 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("movieDetailVCSegue", sender: move)
     }
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = app.managedObjectContext
-        let movieItem = movies[indexPath.row]
-        
-        let EditMovie = UITableViewRowAction(style: .Normal, title: "Edit") { (action, index in
-            var movie: Movie!
-            movie = self.movies[indexPath.row]
-            self.performSegueWithIdentifier("addMovieVC", sender: movie)
-            
-        }
-    }
     
     
-    
-   
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "movieDetailVCSegue" {
