@@ -330,7 +330,7 @@
                                 <state key="normal" title="Edit Image"/>
                                 <connections>
                                     <action selector="addMovieImgPressed:" destination="WrM-kq-TDZ" eventType="touchUpInside" id="AB6-Nz-9AC"/>
-                                    <action selector="addMovieImgPressed:" destination="UK5-KI-dR7" eventType="touchUpInside" id="Fu1-40-ULd"/>
+                                    <action selector="editMovieBtnPressed:" destination="UK5-KI-dR7" eventType="touchUpInside" id="cjZ-iF-0T4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQH-Vc-rHD">
@@ -343,8 +343,8 @@
                                 </constraints>
                                 <state key="normal" title="Submit"/>
                                 <connections>
+                                    <action selector="addMovieImgPressed:" destination="UK5-KI-dR7" eventType="touchUpInside" id="myF-AG-VZ3"/>
                                     <action selector="createMovieBtnPressed:" destination="WrM-kq-TDZ" eventType="touchUpInside" id="Has-ju-XQj"/>
-                                    <action selector="editMovieBtnPressed:" destination="UK5-KI-dR7" eventType="touchUpInside" id="liR-oR-Y3X"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -377,12 +377,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addMovieBtn" destination="yQH-Vc-rHD" id="t12-Lu-Hx1"/>
-                        <outlet property="moviePosterImg" destination="XyJ-P4-e0a" id="dh6-Qo-ouZ"/>
-                        <outlet property="plotField" destination="YCQ-wW-hqb" id="P4x-EF-Jzd"/>
-                        <outlet property="ratingField" destination="79y-Wa-nYz" id="OLX-6e-dab"/>
-                        <outlet property="searchMovie" destination="XSb-wn-bA2" id="sZL-KD-qB2"/>
-                        <outlet property="titleField" destination="oKc-gI-rM8" id="Lwm-9M-Ofv"/>
+                        <outlet property="moviePosterImg" destination="XyJ-P4-e0a" id="axq-vl-wtg"/>
+                        <outlet property="plotField" destination="YCQ-wW-hqb" id="cgh-LD-Laz"/>
+                        <outlet property="ratingField" destination="79y-Wa-nYz" id="egb-jy-VfH"/>
+                        <outlet property="searchMovie" destination="XSb-wn-bA2" id="h23-Oj-WaI"/>
+                        <outlet property="titleField" destination="oKc-gI-rM8" id="CNN-S1-QSK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7w1-jb-lWK" userLabel="First Responder" sceneMemberID="firstResponder"/>

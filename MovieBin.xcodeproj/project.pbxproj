@@ -88,7 +88,6 @@
 				83CB022E1CBB753200F931FD /* View */,
 				83CB022D1CBB752C00F931FD /* Model */,
 				83CB02181CBB687300F931FD /* AppDelegate.swift */,
-				83CB021C1CBB687300F931FD /* Main.storyboard */,
 				83CB02221CBB687300F931FD /* Assets.xcassets */,
 				83CB02241CBB687300F931FD /* LaunchScreen.storyboard */,
 				83CB02271CBB687300F931FD /* Info.plist */,
@@ -109,6 +108,7 @@
 		83CB022E1CBB753200F931FD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				83CB021C1CBB687300F931FD /* Main.storyboard */,
 				83CB02341CBB77B200F931FD /* MovieCell.swift */,
 			);
 			name = View;

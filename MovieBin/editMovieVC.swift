@@ -36,9 +36,6 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
         imagePicker.delegate = self
         moviePosterImg.layer.cornerRadius = 5.0
         moviePosterImg.clipsToBounds = true
-        searchMovie.delegate = self
-        
-        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -46,34 +43,31 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
         moviePosterImg.image = image
     }
     
-    
-    
     @IBAction func addMovieImgPressed(sender: AnyObject) {
         
         presentViewController(imagePicker, animated: true, completion: nil)
     }
-    
-    
     
     @IBAction func editMovieBtnPressed(sender: AnyObject) {
         
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Movie")
-        
+       
         do {
-            try context.executeRequest(fetchRequest)
-            print("WeGet Here")
-            movie.title = titleField.text
-            movie.plot = plotField.text
-            movie.rating = ratingField.text
-            movie.setMovieImage(moviePosterImg.image!)
             
-            do {
-                try context.save()
-            } catch {
-                print("Data Could Not be saved")
-            }
+            try context.executeFetchRequest(fetchRequest)
+                movie.title = titleField.text
+                movie.plot = plotField.text
+                movie.rating = ratingField.text
+                movie.setMovieImage(moviePosterImg.image!)
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("Could not edit movie")
+                }
+            
             
         } catch let err as NSError {
             print(err.debugDescription)
@@ -126,16 +120,17 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
                         if let data = NSData(contentsOfURL: nsurl) {
                             let img = UIImage(data: data)
                             self.moviePosterImg.image = img
+                            
                         }
                         
                         self.titleField.text = title
                         self.ratingField.text = rating
                         self.plotField.text = plot
+                        
                     }
                 }
             }
         }
-    }
-    
+    }    
 }
 

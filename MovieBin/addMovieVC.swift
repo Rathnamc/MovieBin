@@ -33,7 +33,7 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
         imagePicker.delegate = self
         moviePosterImg.layer.cornerRadius = 5.0
         moviePosterImg.clipsToBounds = true
-        searchMovie.delegate = self
+       
         
       
     }
@@ -118,6 +118,7 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
                             if let data = NSData(contentsOfURL: nsurl) {
                                 let img = UIImage(data: data)
                                 self.moviePosterImg.image = img
+                                
                         }
                         
                         self.titleField.text = title
