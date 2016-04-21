@@ -93,7 +93,7 @@
                     <connections>
                         <outlet property="tableView" destination="xlg-7d-Twn" id="R1x-Qk-FeG"/>
                         <segue destination="fzE-IP-GIV" kind="showDetail" identifier="movieDetailVCSegue" id="f0O-HU-noV"/>
-                        <segue destination="UK5-KI-dR7" kind="show" id="DzO-CL-Bfi"/>
+                        <segue destination="UK5-KI-dR7" kind="show" identifier="editMovieSegue" id="DzO-CL-Bfi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
