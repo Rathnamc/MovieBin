@@ -85,7 +85,40 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("movieDetailVCSegue", sender: move)
     }
     
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let movieItem = movies[indexPath.row]
+        
+        let Edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
+            var movie: Movie!
+            movie = self.movies[indexPath.row]
+            self.performSegueWithIdentifier("editMovieSegue", sender: movie)
+        }
+        
+        Edit.backgroundColor = UIColor.lightGrayColor()
+        
+        let Delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+          
+            context.deleteObject(movieItem)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Could not delete cell")
+            }
+            
+            self.fetchAndSetData()
+            self.tableView.reloadData()
+        
+        }
+        Delete.backgroundColor = UIColor.orangeColor()
+        return [Edit, Delete]
+    }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

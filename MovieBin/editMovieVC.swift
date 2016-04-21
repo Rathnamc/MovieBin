@@ -20,6 +20,8 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
     @IBOutlet weak var plotField: UITextField!
     @IBOutlet weak var addMovieBtn: UIButton!
     
+    var movie: Movie!
+    
     
     var userInput: String?
     var finalInput: String!
@@ -57,19 +59,24 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
         
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
-        let entity = NSEntityDescription.entityForName("Movie", inManagedObjectContext: context)!
-        let movie = Movie(entity: entity, insertIntoManagedObjectContext: context)
-        movie.title = titleField.text
-        movie.plot = plotField.text
-        movie.rating = ratingField.text
-        movie.setMovieImage(moviePosterImg.image!)
-        
-        context.insertObject(movie)
+        let fetchRequest = NSFetchRequest(entityName: "Movie")
         
         do {
-            try context.save()
-        } catch {
-            print("Data Could Not be saved")
+            try context.executeRequest(fetchRequest)
+            print("WeGet Here")
+            movie.title = titleField.text
+            movie.plot = plotField.text
+            movie.rating = ratingField.text
+            movie.setMovieImage(moviePosterImg.image!)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Data Could Not be saved")
+            }
+            
+        } catch let err as NSError {
+            print(err.debugDescription)
         }
         
         self.navigationController?.popViewControllerAnimated(true)
