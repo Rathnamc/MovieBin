@@ -31,8 +31,9 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        moviePosterImg.layer.cornerRadius = 5.0
-        moviePosterImg.clipsToBounds = true
+       // moviePosterImg.frame.size.width = 121
+       // moviePosterImg.frame.size.height = 40;
+       // moviePosterImg.clipsToBounds = true
         searchMovie.delegate = self
         
       
@@ -53,25 +54,28 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
     
     
     @IBAction func createMovieBtnPressed(sender: AnyObject) {
-        
-        let app = UIApplication.sharedApplication().delegate as! AppDelegate
-        let context = app.managedObjectContext
-        let entity = NSEntityDescription.entityForName("Movie", inManagedObjectContext: context)!
-        let movie = Movie(entity: entity, insertIntoManagedObjectContext: context)
-        movie.title = titleField.text
-        movie.plot = plotField.text
-        movie.rating = ratingField.text
-        movie.setMovieImage(moviePosterImg.image!)
-        
-        context.insertObject(movie)
-        
-        do {
-            try context.save()
-        } catch {
-            print("Data Could Not be saved")
+        if let title = titleField.text where title != " " {
+            let app = UIApplication.sharedApplication().delegate as! AppDelegate
+            let context = app.managedObjectContext
+            let entity = NSEntityDescription.entityForName("Movie", inManagedObjectContext: context)!
+            let movie = Movie(entity: entity, insertIntoManagedObjectContext: context)
+            movie.title = titleField.text
+            movie.plot = plotField.text
+            movie.rating = ratingField.text
+            movie.setMovieImage(moviePosterImg.image!)
+            
+            context.insertObject(movie)
+            
+            do {
+                try context.save()
+            } catch {
+                print("Data Could Not be saved")
+            }
+            
+            self.navigationController?.popViewControllerAnimated(true)
+        } else {
+            
         }
-        
-        self.navigationController?.popViewControllerAnimated(true)
         
     }
     

@@ -80,9 +80,9 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let move : Movie!
-        move = movies[indexPath.row]
-        performSegueWithIdentifier("movieDetailVCSegue", sender: move)
+        let movie : Movie!
+        movie = movies[indexPath.row]
+        performSegueWithIdentifier("movieDetailVCSegue", sender: movie)
     }
     
     
@@ -151,7 +151,6 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         if segue.identifier == "movieDetailVCSegue" {
             if let detailsVC = segue.destinationViewController as? movieDetailVC {
                 if let movie = sender as? Movie {
-                    
                     detailsVC.movie = movie
                 }
             }
