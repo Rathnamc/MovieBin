@@ -108,8 +108,8 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
     }
-    
-    
+ 
+    //MARK: BUG with in editing function.
     /*
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -139,9 +139,10 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         }
         Delete.backgroundColor = UIColor.orangeColor()
-        return [Delete]
+        return [Delete, Edit]
     }
     */
+    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -156,7 +157,5 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
             }
         }
     }
-    
-    
 }
 
