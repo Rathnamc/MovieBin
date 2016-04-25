@@ -343,7 +343,6 @@
                                 </constraints>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="createMovieBtnPressed:" destination="WrM-kq-TDZ" eventType="touchUpInside" id="Has-ju-XQj"/>
                                     <action selector="editMovieBtnPressed:" destination="UK5-KI-dR7" eventType="touchUpInside" id="liR-oR-Y3X"/>
                                 </connections>
                             </button>

@@ -85,7 +85,7 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("movieDetailVCSegue", sender: movie)
     }
     
-    /*
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -108,7 +108,7 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
     }
-     */
+ 
     //MARK: BUG with in editing function.
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -116,10 +116,16 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         let context = app.managedObjectContext
         let movieItem = movies[indexPath.row]
         
+        
+        //ADD Core Data Edit Ability
+        
+        
         let Edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
             var movie: Movie!
             movie = self.movies[indexPath.row]
-            self.performSegueWithIdentifier("editMovieSegue", sender: movie)
+
+           self.performSegueWithIdentifier("editMovieSegue", sender: movie)
+        
         }
         
         Edit.backgroundColor = UIColor.lightGrayColor()
@@ -156,8 +162,13 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
                 }
             }
         }
-        
-        if
+        if segue.identifier == "editMovieSegue" {
+            if let editVC = segue.destinationViewController as? editMovieVC {
+                if let movie = sender as? Movie {
+                    editVC.movie = movie
+                }
+            }
+        }
     }
 }
 

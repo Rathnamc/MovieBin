@@ -21,7 +21,7 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
     @IBOutlet weak var addMovieBtn: UIButton!
     
     var movie: Movie!
-    
+//    var movie = Movie()
     
     var userInput: String?
     var finalInput: String!
@@ -38,7 +38,9 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
         moviePosterImg.clipsToBounds = true
         searchMovie.delegate = self
         
-        
+        print("!!!!!!")
+        print(movie.title)
+
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -64,12 +66,15 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
         do {
             try context.executeFetchRequest(fetchRequest)
             
+            print("titleField: \(titleField.text)")
             
             movie.title = titleField.text
+//            print("!!!!!!!!!!!!!!!!")
             movie.plot = plotField.text
             movie.rating = ratingField.text
             movie.setMovieImage(moviePosterImg.image!)
                 context.insertObject(movie)
+            
             
             do {
                 try context.save()
