@@ -85,7 +85,7 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         performSegueWithIdentifier("movieDetailVCSegue", sender: movie)
     }
     
-    
+    /*
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let app = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -108,9 +108,9 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
     }
- 
+     */
     //MARK: BUG with in editing function.
-    /*
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let app = UIApplication.sharedApplication().delegate as! AppDelegate
         let context = app.managedObjectContext
@@ -141,7 +141,7 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         Delete.backgroundColor = UIColor.orangeColor()
         return [Delete, Edit]
     }
-    */
+ 
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -156,6 +156,8 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
                 }
             }
         }
+        
+        if
     }
 }
 
