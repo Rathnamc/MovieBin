@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Movie CollectionVC-->
+        <!--MovieBin-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="movieCollectionVC" customModule="MovieBin" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,7 +83,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xlg-7d-Twn" secondAttribute="bottom" id="vUI-7r-2ma"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rnv-IK-VIi">
+                    <navigationItem key="navigationItem" title="MovieBin" id="rnv-IK-VIi">
                         <barButtonItem key="rightBarButtonItem" title="Add Movie" id="oK2-yg-M6E">
                             <connections>
                                 <segue destination="WrM-kq-TDZ" kind="show" id="4vS-hj-XUa"/>

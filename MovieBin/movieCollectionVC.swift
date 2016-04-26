@@ -108,7 +108,7 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         }
         
-        Edit.backgroundColor = UIColor.lightGrayColor()
+        Edit.backgroundColor = UIColor(red:0.341, green:0.831, blue:0.918, alpha:1.00)
         
         let Delete = UITableViewRowAction(style: .Destructive, title: "Delete") { action, index in
           
@@ -127,7 +127,7 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
         }
         
-        Delete.backgroundColor = UIColor.orangeColor()
+        Delete.backgroundColor = UIColor(red:1.000, green:0.267, blue:0.318, alpha:1.00)
         return [Delete, Edit]
     }
  

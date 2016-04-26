@@ -59,6 +59,8 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
             let context = app.managedObjectContext
             let entity = NSEntityDescription.entityForName("Movie", inManagedObjectContext: context)!
             let movie = Movie(entity: entity, insertIntoManagedObjectContext: context)
+           
+    
             movie.title = titleField.text
             movie.plot = plotField.text
             movie.rating = ratingField.text
@@ -73,8 +75,10 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
             }
             
             self.navigationController?.popViewControllerAnimated(true)
+            
         } else {
             
+            print("Movie Not Found")
         }
         
     }
@@ -112,25 +116,44 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
                 
                 if let dict = result.value as? Dictionary<String, AnyObject> {
                     
-                    if let title = dict["Title"] as? String, let rating = dict["imdbRating"] as? String, let plot = dict["Plot"] as? String, let path = dict["Poster"] as? String {
-                        print(title)
-                        print(rating)
-                        print(path)
-                        print(plot)
+                    if let title = dict["Title"] as? String {
+                       
+                        self.titleField.text = title
+                    
+                    } else {
+                        let alert = UIAlertController(title: "Movie Not Found", message: "The Database could not find the movie. Please add your information manually", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
                         
+                        
+                        
+                    if let rating = dict["imdbRating"] as? String {
+                        print(rating)
+                        self.ratingField.text = rating
+                        
+                    }
+                    if let plot = dict["Plot"] as? String {
+                        print(plot)
+                        self.plotField.text = plot
+                    }
+                    
+                    if let path = dict["Poster"] as? String {
+                        print(path)
                         let nsurl = NSURL(string: path)!
-                            if let data = NSData(contentsOfURL: nsurl) {
-                                let img = UIImage(data: data)
+                        if let data = NSData(contentsOfURL: nsurl) {
+                            if let img = UIImage(data: data) {
                                 self.moviePosterImg.image = img
+                            }
                         }
                         
-                        self.titleField.text = title
-                        self.ratingField.text = rating
-                        self.plotField.text = plot
+                    } else {
+                        let alert = UIAlertController(title: "Poster Not Found", message: "The Database could not find the movie Poster. Please add your information manually", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
                     }
                 }
             }
         }
     }
-
 }
