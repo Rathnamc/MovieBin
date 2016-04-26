@@ -84,30 +84,6 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         movie = movies[indexPath.row]
         performSegueWithIdentifier("movieDetailVCSegue", sender: movie)
     }
-    
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            let app = UIApplication.sharedApplication().delegate as! AppDelegate
-            let context = app.managedObjectContext
-            
-            let movie = movies[indexPath.row] as NSManagedObject
-            
-            context.deleteObject(movie)
-            
-            do {
-                try context.save()
-            } catch let err as NSError {
-                print(err.debugDescription)
-            }
-            
-            movies.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-            
-            tableView.reloadData()
-            
-        }
-    }
  
     //MARK: BUG with in editing function.
     
@@ -123,27 +99,34 @@ class movieCollectionVC: UIViewController, UITableViewDelegate, UITableViewDataS
         let Edit = UITableViewRowAction(style: .Normal, title: "Edit") { action, index in
             var movie: Movie!
             movie = self.movies[indexPath.row]
-
+            
+            movie.setValue(movie.title, forKey: "title")
+            movie.setValue(movie.plot, forKey: "plot")
+            movie.setValue(movie.rating, forKey: "rating")
+            
            self.performSegueWithIdentifier("editMovieSegue", sender: movie)
         
         }
         
         Edit.backgroundColor = UIColor.lightGrayColor()
         
-        let Delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+        let Delete = UITableViewRowAction(style: .Destructive, title: "Delete") { action, index in
           
+            
             context.deleteObject(movieItem)
+            print ("Delete Object")
             
             do {
                 try context.save()
             } catch {
                 print("Could not delete cell")
             }
-            
+    
             self.fetchAndSetData()
             self.tableView.reloadData()
-        
+    
         }
+        
         Delete.backgroundColor = UIColor.orangeColor()
         return [Delete, Edit]
     }

@@ -69,7 +69,7 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
             do {
                 try context.save()
             } catch {
-                print("Data Could Not be saved")
+                print("Data Could Not be saved to create new entity")
             }
             
             self.navigationController?.popViewControllerAnimated(true)
