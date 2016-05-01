@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -22,7 +27,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF0465E0508821E8853291DFD2D48012</key>
+		<key>B9C6B1E343C34662B3ADC46D32838D8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C89D5D830C8F9D835B750F4B570F789E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
