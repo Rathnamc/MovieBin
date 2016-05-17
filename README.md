@@ -11,6 +11,9 @@ Swipping on any cell with in the Tableview will display the Edit and Delete func
 
 The future potential of this app is to move beyond movies. Eventually adding Tv shows, games, music, or any other form of media.
 
-![alt text](Screenshots/AddMovieScreen.png "Search Movie Screen")
+<img width="371" alt="collectionscreen" src="https://cloud.githubusercontent.com/assets/10395303/15310560/148303ca-1bbf-11e6-9b15-bb1a906c3059.png">
+<img width="371" alt="addmoviescreen" src="https://cloud.githubusercontent.com/assets/10395303/15310559/148176fe-1bbf-11e6-9cb7-146117657185.png">
+
+
 
 
