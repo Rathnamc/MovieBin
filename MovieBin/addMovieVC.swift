@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import CoreData
 
+
+
 class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var searchMovie: UITextField!
@@ -118,7 +120,7 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
                     
                     if let title = dict["Title"] as? String {
                        
-                        self.titleField.text = title
+                        self.titleField.text = title.uppercaseString
                     
                     } else {
                         let alert = UIAlertController(title: "Movie Not Found", message: "The Database could not find the movie. Please add your information manually", preferredStyle: UIAlertControllerStyle.Alert)
@@ -138,9 +140,10 @@ class addMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextField
                         self.plotField.text = plot
                     }
                     
-                    if let path = dict["Poster"] as? String {
-                        print(path)
-                        let nsurl = NSURL(string: path)!
+                    if let image = dict["Poster"] as? String {
+                        print(image)
+                        
+                        let nsurl = NSURL(string: image)!
                         if let data = NSData(contentsOfURL: nsurl) {
                             if let img = UIImage(data: data) {
                                 self.moviePosterImg.image = img

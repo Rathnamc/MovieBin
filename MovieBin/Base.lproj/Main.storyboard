@@ -462,41 +462,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-be-uRm">
-                                <rect key="frame" x="180" y="358" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="0ea-a6-X8B"/>
-                                    <constraint firstAttribute="width" constant="240" id="s1S-6Q-oaJ"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="This-is-the-End-Movie-Poster" translatesAutoresizingMaskIntoConstraints="NO" id="7IS-AQ-uC1">
-                                <rect key="frame" x="180" y="76" width="240" height="262"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="BqJ-yR-w9F"/>
-                                    <constraint firstAttribute="height" constant="262" id="O17-Ju-DC8"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Is The End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-ld-HHz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Is The End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-ld-HHz" customClass="SpringLabel" customModule="Spring">
                                 <rect key="frame" x="0.0" y="20" width="600" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="1.3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeIn"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tOc-2L-SRs">
+                                <rect key="frame" x="20" y="86" width="560" height="262"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="This-is-the-End-Movie-Poster" translatesAutoresizingMaskIntoConstraints="NO" id="7IS-AQ-uC1" customClass="SpringImageView" customModule="Spring">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="262"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="BqJ-yR-w9F"/>
+                                            <constraint firstAttribute="height" constant="262" id="O17-Ju-DC8"/>
+                                            <constraint firstAttribute="height" constant="262" id="W4a-Ra-nqd"/>
+                                            <constraint firstAttribute="width" constant="240" id="tvU-Fa-OF2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animation" value="fadeInUp"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                                <real key="value" value="1.3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="curve" value="easeIn"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="BqJ-yR-w9F"/>
+                                                <exclude reference="O17-Ju-DC8"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCg-be-uRm">
+                                        <rect key="frame" x="250" y="0.0" width="310" height="262"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="0ea-a6-X8B"/>
+                                            <constraint firstAttribute="width" constant="240" id="s1S-6Q-oaJ"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NCg-be-uRm" firstAttribute="top" secondItem="7IS-AQ-uC1" secondAttribute="bottom" constant="20" id="01j-ZW-uh2"/>
-                            <constraint firstItem="7IS-AQ-uC1" firstAttribute="centerX" secondItem="ky3-wT-Evj" secondAttribute="centerX" id="6hC-eW-Szl"/>
+                            <constraint firstItem="tOc-2L-SRs" firstAttribute="leading" secondItem="ky3-wT-Evj" secondAttribute="leadingMargin" id="0Nk-Ue-YLp"/>
                             <constraint firstItem="ibw-ld-HHz" firstAttribute="top" secondItem="U7S-HK-BIF" secondAttribute="bottom" id="8UA-uV-3gv"/>
-                            <constraint firstItem="NCg-be-uRm" firstAttribute="centerX" secondItem="ky3-wT-Evj" secondAttribute="centerX" id="AUZ-PP-08P"/>
                             <constraint firstItem="ibw-ld-HHz" firstAttribute="centerX" secondItem="ky3-wT-Evj" secondAttribute="centerX" id="DKk-RN-i7D"/>
-                            <constraint firstItem="7IS-AQ-uC1" firstAttribute="top" secondItem="ibw-ld-HHz" secondAttribute="bottom" constant="20" id="IDb-Oc-vAb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tOc-2L-SRs" secondAttribute="trailing" id="InN-t4-bAN"/>
                             <constraint firstAttribute="trailing" secondItem="ibw-ld-HHz" secondAttribute="trailing" id="Xwx-i8-f9A"/>
                             <constraint firstItem="ibw-ld-HHz" firstAttribute="leading" secondItem="ky3-wT-Evj" secondAttribute="leading" id="hah-37-QCe"/>
+                            <constraint firstItem="tOc-2L-SRs" firstAttribute="top" secondItem="ibw-ld-HHz" secondAttribute="bottom" constant="30" id="y8w-PU-6cJ"/>
                         </constraints>
                     </view>
                     <connections>

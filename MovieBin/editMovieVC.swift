@@ -70,7 +70,6 @@ class editMovieVC: UIViewController, UIImagePickerControllerDelegate, UITextFiel
             
             
             movie.title = titleField.text
-//            print("!!!!!!!!!!!!!!!!")
             movie.plot = plotField.text
             movie.rating = ratingField.text
             movie.setMovieImage(moviePosterImg.image!)
